@@ -36,7 +36,7 @@ export function renderStartScreen() {
 
         gameState.playerName = name;
         gameState.screen = "game";
-        gameState.phase = "intro";
+        gameState.phase = "story";
 
         saveGameState(gameState);
         render();

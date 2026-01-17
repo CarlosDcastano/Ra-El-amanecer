@@ -35,11 +35,16 @@ export const gameState = {
     currentQuestion: null,
 
     // Fases dentro de la pantalla de juego
-    phase: "intro", // intro | question | feedback
+    phase: "story", // story | question | feedback
 
     // Feedback
     lastAnswerCorrect: null,
     feedbackMessage: "",
+
+    helpers: {
+    fiftyFiftyUsed: false,
+    seventyFiveUsed: false
+    },
 
     // Resultado final
     victory: null // true | false | null
