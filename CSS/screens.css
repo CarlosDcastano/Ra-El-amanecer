@@ -1,0 +1,132 @@
+/* Clase base para todas las pantallas */
+.screen {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    /* Flexbox para centrar todo el contenido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* --- PANTALLA INICIO --- */
+.start-screen {
+    position: relative;
+    overflow: hidden;
+    background-color: #111;
+}
+
+/* 2. Pseudo-elemento para el fondo borroso estirado */
+.start-screen::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('../assets/img/Ra.png');
+    background-size: cover;
+    background-position: center;
+    filter: blur(15px) brightness(0.5); /* Borroso y oscuro */
+    z-index: 1;
+}
+
+/* 3. Pseudo-elemento para la imagen nítida de Ra encima */
+.start-screen::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('../assets/img/Ra.png');
+    background-size: contain; /* Se ve entero */
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    z-index: 2;
+}
+
+/* 4. Aseguramos que la tarjeta del input esté POR ENCIMA de todo */
+.start-card {
+    position: relative;
+    z-index: 3; /* Más alto que las capas de fondo */
+}
+
+.start-card input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 1.1rem;
+    text-align: center;
+    border-radius: 4px;
+    outline: none;
+}
+
+.start-card input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.start-card input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px var(--gold);
+}
+
+/* --- PANTALLA RESULTADOS --- */
+.result-victory {
+    background-image: url('../assets/img/victory.png');
+}
+
+.result-victory::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('../assets/img/victory.png');
+    background-size: cover;
+    background-position: center;
+    filter: blur(15px) brightness(0.5); /* Borroso y oscuro */
+    z-index: 1;
+}
+
+/* 3. Pseudo-elemento para la imagen nítida de Ra encima */
+.result-victory::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('../assets/img/victory.png');
+    background-size: contain; /* Se ve entero */
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    z-index: 2;
+}
+
+.result-defeat {
+    background-image: url('../assets/img/Apofis.png');
+}
+
+.result-defeat::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('../assets/img/Apofis.png');
+    background-size: cover;
+    background-position: center;
+    filter: blur(15px) brightness(0.5); /* Borroso y oscuro */
+    z-index: 1;
+}
+
+/* 3. Pseudo-elemento para la imagen nítida de Ra encima */
+.result-defeat::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('../assets/img/Apofis.png');
+    background-size: contain; /* Se ve entero */
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    z-index: 2;
+}
+
+.result-card h1 {
+    font-size: 2.5rem;
+}

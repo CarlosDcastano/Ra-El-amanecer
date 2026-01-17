@@ -1,0 +1,137 @@
+/* --- FONDOS POR NIVEL --- */
+/* La clase .game-screen ya hereda de .screen, aquí añadimos transición */
+.game-screen {
+    transition: background-image 1s ease-in-out; /* Transición suave de fondo */
+}
+
+/* Estas clases las pone el JS dinámicamente: class="screen game-screen level-1" */
+.level-1 { background-image: url('../assets/img/level1.png'); }
+.level-2 { background-image: url('../assets/img/level2.jpg'); }
+.level-3 { background-image: url('../assets/img/level3.png'); }
+.level-4 { background-image: url('../assets/img/level4.png'); }
+
+/* --- FASE DE HISTORIA --- */
+.story-card {
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.85); /* Más oscuro para leer bien el texto */
+    border: 1px solid var(--gold);
+}
+
+.story-card p {
+    font-size: 1.3rem;
+    line-height: 1.6;
+}
+
+/* --- FASE DE PREGUNTA --- */
+.question-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.ra-avatar {
+    /* Si tienes una imagen de Ra, ponla aquí */
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 10px;
+    background: url('../assets/img/ra-face.png') center/cover; /* Opcional */
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 15px var(--gold);
+}
+
+.bubble {
+    background: rgba(255, 255, 255, 0.9);
+    color: #000;
+    padding: 15px 25px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: inline-block;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* Grid de Respuestas */
+.answers-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    width: 100%;
+    max-width: 700px;
+    padding: 0 20px;
+}
+
+.btn-answer {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+    text-align: left; /* Mejor lectura */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-answer:hover {
+    background: rgba(255, 215, 0, 0.2);
+    border-color: var(--gold);
+    transform: translateY(-2px);
+}
+
+/* Botones ocultos por las ayudas */
+.btn-answer.hidden {
+    opacity: 0;
+    pointer-events: none;
+    cursor: default;
+}
+
+/* Ayudas */
+.helpers-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.btn-helper {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.btn-helper:hover:not(:disabled) {
+    background: var(--gold);
+    color: black;
+}
+
+.btn-helper:disabled {
+    border-color: #555;
+    color: #555;
+    cursor: not-allowed;
+    text-decoration: line-through;
+}
+
+/* HUD (Nivel y contador) */
+.hud {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.5);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--gold);
+    border: 1px solid var(--gold-dim);
+}
+
+/* Responsive para móviles */
+@media (max-width: 600px) {
+    .answers-container {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+}

@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@400;700&display=swap');
+
+:root {
+    --gold: #FFD700;
+    --gold-dim: #C5A000;
+    --dark-overlay: rgba(0, 0, 0, 0.75);
+    --glass-bg: rgba(18, 18, 18, 0.65); /* Fondo oscuro semitransparente */
+    --glass-border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif; /* Texto normal */
+    background-color: #000;
+    color: white;
+    height: 100vh;
+    overflow: hidden; /* Evita scrollbars */
+}
+
+h1, h2, h3 {
+    font-family: 'Cinzel', serif; /* Títulos épicos */
+    color: var(--gold);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Contenedor principal a pantalla completa */
+#app {
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Estilos comunes para botones */
+button {
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--gold-dim), var(--gold));
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    display: block;
+    margin: 20px auto 0;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+}
+
+/* Estilo común para las tarjetas centrales (Input, Mensajes, Historia) */
+.card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px); /* EFECTO BORROSO DETRÁS DE LA TARJETA */
+    -webkit-backdrop-filter: blur(10px);
+    border: var(--glass-border);
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

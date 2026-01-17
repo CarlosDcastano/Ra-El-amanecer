@@ -32,6 +32,7 @@ export const gameState = {
     // Preguntas
     questionsPool: [],       // todas las preguntas mezcladas
     usedQuestions: [],       // para evitar repetición
+    activeQuestions: [],
     currentQuestion: null,
 
     // Fases dentro de la pantalla de juego
