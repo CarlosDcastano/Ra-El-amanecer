@@ -11,7 +11,7 @@ function shuffleArray(array) {
 export function use5050() {
     if (gameState.helpers.fiftyFiftyUsed) return;
 
-    // Usamos activeQuestions
+
     const question = gameState.activeQuestions[gameState.currentQuestionIndex];
     if (!question) return;
 
@@ -44,6 +44,6 @@ export function use7525() {
     shuffleArray(wrongIndexes);
     
     // Ocultar 3
-    question.hiddenOptions = wrongIndexes.slice(0, 3);
+    question.hiddenOptions = wrongIndexes.slice(0, 1);
     gameState.helpers.seventyFiveUsed = true;
 }

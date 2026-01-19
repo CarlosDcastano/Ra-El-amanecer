@@ -13,6 +13,8 @@
     flex-direction: column;
 }
 
+
+
 /* --- PANTALLA INICIO --- */
 .start-screen {
     position: relative;
@@ -46,8 +48,9 @@
 
 /* 4. Aseguramos que la tarjeta del input esté POR ENCIMA de todo */
 .start-card {
-    position: relative;
-    z-index: 3; /* Más alto que las capas de fondo */
+    position: absolute;
+    right: 40px;
+    z-index: 3; 
 }
 
 .start-card input {
@@ -125,6 +128,14 @@
     background-repeat: no-repeat;
     background-position: center bottom;
     z-index: 2;
+}
+
+.result-card {
+    color: white;
+    position: absolute;
+    top: 5%;
+    left: 68%;
+    z-index: 3; 
 }
 
 .result-card h1 {

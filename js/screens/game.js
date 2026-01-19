@@ -25,7 +25,14 @@ export function renderGameScreen() {
 function renderStoryPhase() {
     // Textos según el nivel
     const storyTexts = {
-        1: "Una noche eterna cubre Egipto. Hace 10 días el sol no aparece. Ra ha perdido sus poderes.",
+        1: `La eterna lucha entre la luz y el caos ha llegado a un punto crítico.
+            Ra, dios del sol y guardián del equilibrio, se enfrenta una vez más a Apofis, la serpiente del abismo. Pero esta vez, algo ha salido mal: durante el combate, Ra ha perdido gran parte de su poder y la noche se niega a retirarse.
+
+            El destino de Egipto ahora depende de ti.
+            Con cada pregunta respondida correctamente, ayudarás a Ra a recuperar su fuerza y avanzar en la batalla. Cada acierto acerca el amanecer; cada error fortalece a la oscuridad.
+
+            La luz aún puede vencer.
+            La batalla comienza ahora.`,
         2: "¡Has recuperado un fragmento de luz! Pero Apofis envía a sus demonios más fuertes.",
         3: "El horizonte empieza a clarear, pero la oscuridad se resiste. ¡No te rindas ahora!",
         4: "¡Es la batalla final! Ra necesita toda tu sabiduría para vencer a Apofis definitivamente."
@@ -53,7 +60,7 @@ function renderStoryPhase() {
 }
 
 function renderQuestionPhase() {
-    // USAMOS activeQuestions
+
     const question = gameState.activeQuestions[gameState.currentQuestionIndex];
 
     if (!question) {
@@ -65,7 +72,7 @@ function renderQuestionPhase() {
         <div class="screen game-screen level-${gameState.level}">
             
             <div class="question-container">
-                <div class="ra-avatar"></div> <div class="bubble">
+                <div class="bubble">
                     <p>${question.text}</p>
                 </div>
             </div>
@@ -77,7 +84,11 @@ function renderQuestionPhase() {
                 <button id="helper7525" class="btn-helper" ${gameState.helpers.seventyFiveUsed ? "disabled" : ""}>
                     75/25
                 </button>
+
+                
             </div>
+
+            
 
             <div class="answers-container">
                 ${question.options.map((option, index) => {
@@ -96,6 +107,20 @@ function renderQuestionPhase() {
             <div class="hud">
                 <span>Nivel: ${gameState.level}</span>
                 <span>Pregunta: ${gameState.currentQuestionIndex + 1} / ${gameState.activeQuestions.length}</span>
+            </div>
+
+            <div class="bottom-container">
+            <button class="volver-btn">
+                REINICIAR
+            </button>
+            </div>
+
+            <div class="ra-symbol">
+                <img src="../assets/img/raalone.png" alt="Símbolo de Ra" />
+            </div>
+
+            <div class="apofis-symbol">
+                <img src="../assets/img/apofisalone.png" alt="Símbolo de Apofis" />
             </div>
         </div>
     `;
@@ -122,7 +147,21 @@ function renderQuestionPhase() {
             });
         }
     });
+
+    document.querySelector(".volver-btn").addEventListener("click", () => {
+    gameState.screen = "start";
+    gameState.phase = "story"; 
+    gameState.level = 1;
+    gameState.currentQuestionIndex = 0;
+    gameState.correctAnswersThisLevel = 0;
+    gameState.helpers.fiftyFiftyUsed = false;
+    gameState.helpers.seventyFiveUsed = false;
+    saveGameState(gameState);
+    render();
+    });
 }
+
+
 
 function renderFeedbackPhase() {
     const isCorrect = gameState.lastAnswerCorrect;

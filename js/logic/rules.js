@@ -32,7 +32,7 @@ export function prepareLevelQuestions() {
  * Maneja la respuesta del jugador
  */
 export function handleAnswer(selectedIndex) {
-    // Usamos activeQuestions, no el pool entero
+
     const question = gameState.activeQuestions[gameState.currentQuestionIndex];
 
     if (!question) return;
@@ -115,9 +115,8 @@ function resetLevelState() {
     gameState.currentQuestionIndex = 0;
     gameState.correctAnswersThisLevel = 0;
     
-    // Reiniciar ayudas (opcional: si quieres que se renoven por nivel)
-    gameState.helpers.fiftyFiftyUsed = false;
-    gameState.helpers.seventyFiveUsed = false;
+    // gameState.helpers.fiftyFiftyUsed = false;
+    // gameState.helpers.seventyFiveUsed = false;
 }
 
 function endGame(victory) {
