@@ -20,6 +20,7 @@
 .story-card p {
     font-size: 1.3rem;
     line-height: 1.6;
+    color: white;
 }
 
 /* --- FASE DE PREGUNTA --- */
@@ -105,6 +106,10 @@
     text-decoration: line-through;
 }
 
+.feedback-card p{
+    color:white;
+}
+
 /* HUD (Nivel y contador) */
 .hud {
     position: absolute;
@@ -159,6 +164,29 @@
     right: 300px;
     width: 50px;
     height: 50px;
+}
+
+.ra-effect, .apofis-effect {
+    position: absolute;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--gold);
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    width: 200px;
+    margin-top: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.ra-effect{
+    top: 10px;
+    left: 12rem;
+}
+
+.apofis-effect {
+    bottom: 10px;
+    right: 2px;
 }
 
 /* Responsive para móviles */

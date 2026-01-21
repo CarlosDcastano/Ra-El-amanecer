@@ -62,6 +62,10 @@ function renderStoryPhase() {
 function renderQuestionPhase() {
 
     const question = gameState.activeQuestions[gameState.currentQuestionIndex];
+    const isCorrect = gameState.lastAnswerCorrect;
+    const message = isCorrect ? "¡Sabiduría Pura!" : "Apofis se burla...";
+    const subMessage = isCorrect ? "Ra recupera fuerza." : "La oscuridad avanza.";
+    const feedbackClass = isCorrect ? "feedback-correct" : "feedback-wrong";
 
     if (!question) {
         console.error("Error: No hay pregunta activa");
@@ -119,9 +123,21 @@ function renderQuestionPhase() {
                 <img src="../assets/img/raalone.png" alt="Símbolo de Ra" />
             </div>
 
+            ${isCorrect === true ? `<div class="ra-effect">
+                    <h2>${message}</h2>
+                    <p>${subMessage}</p>
+                </div>` : 
+                `<div class="ra-effect hidden"></div>`}
+
             <div class="apofis-symbol">
                 <img src="../assets/img/apofisalone.png" alt="Símbolo de Apofis" />
             </div>
+
+            ${isCorrect === false ? `<div class="apofis-effect">
+                    <h2>${message}</h2>
+                    <p>${subMessage}</p>
+                    </div>` : 
+                    `<div class="apofis-effect hidden"></div>`}
         </div>
     `;
 
@@ -156,6 +172,11 @@ function renderQuestionPhase() {
     gameState.correctAnswersThisLevel = 0;
     gameState.helpers.fiftyFiftyUsed = false;
     gameState.helpers.seventyFiveUsed = false;
+    const apofisEffect = document.querySelector(".apofis-effect");
+    const raEffect = document.querySelector(".ra-effect");
+    apofisEffect.classList.add("hidden");
+    raEffect.classList.add("hidden");
+
     saveGameState(gameState);
     render();
     });

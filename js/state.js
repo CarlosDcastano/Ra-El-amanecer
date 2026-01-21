@@ -54,3 +54,5 @@ export const gameState = {
 export function restoreGameState(savedState) {
     Object.assign(gameState, savedState);
 }
+
+
