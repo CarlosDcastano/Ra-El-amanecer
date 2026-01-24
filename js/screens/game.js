@@ -10,6 +10,7 @@ export function renderGameScreen() {
     app.innerHTML = "";
 
     switch (gameState.phase) {
+        
         case "story":
             renderStoryPhase();
             break;
@@ -17,7 +18,7 @@ export function renderGameScreen() {
             renderQuestionPhase();
             break;
         case "feedback":
-            renderFeedbackPhase();
+            renderQuestionPhase();
             break;
     }
 }
@@ -59,12 +60,14 @@ function renderStoryPhase() {
     });
 }
 
-function renderQuestionPhase() {
 
+
+
+function renderQuestionPhase() {
     const question = gameState.activeQuestions[gameState.currentQuestionIndex];
-    const isCorrect = gameState.lastAnswerCorrect;
-    const message = isCorrect ? "¡Sabiduría Pura!" : "Apofis se burla...";
-    const subMessage = isCorrect ? "Ra recupera fuerza." : "La oscuridad avanza.";
+    let isCorrect = gameState.lastAnswerCorrect;
+    const message = isCorrect ? "¡Sabiduría Egipcia!" : "JAjajajajaja...";
+    const subMessage = isCorrect ? "Muy bien, sigue así." : "La oscuridad avanza.";
     const feedbackClass = isCorrect ? "feedback-correct" : "feedback-wrong";
 
     if (!question) {
@@ -96,7 +99,6 @@ function renderQuestionPhase() {
 
             <div class="answers-container">
                 ${question.options.map((option, index) => {
-                    // Si la opción fue ocultada por una ayuda, no la mostramos (o la mostramos invisible)
                     if (question.hiddenOptions && question.hiddenOptions.includes(index)) {
                         return `<button class="btn-answer hidden" disabled></button>`;
                     }
@@ -159,10 +161,13 @@ function renderQuestionPhase() {
             btn.addEventListener("click", () => {
                 handleAnswer(Number(btn.dataset.index));
                 saveGameState(gameState);
+                continueAfterFeedback();
+                saveGameState(gameState);
                 render();
             });
         }
     });
+
 
     document.querySelector(".volver-btn").addEventListener("click", () => {
     gameState.screen = "start";
@@ -176,7 +181,6 @@ function renderQuestionPhase() {
     const raEffect = document.querySelector(".ra-effect");
     apofisEffect.classList.add("hidden");
     raEffect.classList.add("hidden");
-
     saveGameState(gameState);
     render();
     });
@@ -184,7 +188,7 @@ function renderQuestionPhase() {
 
 
 
-function renderFeedbackPhase() {
+/*function renderFeedbackPhase() {
     const isCorrect = gameState.lastAnswerCorrect;
     const message = isCorrect ? "¡Sabiduría Pura!" : "Apofis se burla...";
     const subMessage = isCorrect ? "Ra recupera fuerza." : "La oscuridad avanza.";
@@ -205,4 +209,4 @@ function renderFeedbackPhase() {
         saveGameState(gameState);
         render();
     });
-}
+}*/

@@ -46,6 +46,7 @@ export function handleAnswer(selectedIndex) {
     }
 
     gameState.phase = "feedback";
+
 }
 
 /**
