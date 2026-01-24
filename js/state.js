@@ -1,17 +1,16 @@
 // js/state.js
 
 export const gameState = {
-    // Pantalla actual
+
     screen: "start", // start | game | result
 
-    // Jugador
+
     playerName: "",
 
-    // Control de niveles
+
     level: 1,
     maxLevel: 4,
 
-    // Progreso del nivel actual
     questionsPerLevel: {
     1: 4,
     2: 4,
