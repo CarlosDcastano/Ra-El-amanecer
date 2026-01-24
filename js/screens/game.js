@@ -122,7 +122,7 @@ function renderQuestionPhase() {
             </div>
 
             <div class="ra-symbol">
-                <img src="../../assets/img/raalone.png" alt="Símbolo de Ra" />
+                <img src="../../assets/img/Raalone.png" alt="Símbolo de Ra" />
             </div>
 
             ${isCorrect === true ? `<div class="ra-effect">
@@ -132,7 +132,7 @@ function renderQuestionPhase() {
                 `<div class="ra-effect hidden"></div>`}
 
             <div class="apofis-symbol">
-                <img src="../../assets/img/apofisalone.png" alt="Símbolo de Apofis" />
+                <img src="../../assets/img/Apofisalone.png" alt="Símbolo de Apofis" />
             </div>
 
             ${isCorrect === false ? `<div class="apofis-effect">
